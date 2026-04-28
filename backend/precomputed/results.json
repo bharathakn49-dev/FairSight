@@ -1,0 +1,146 @@
+{
+  "bias_overview": {
+    "fairness_score": 0.0,
+    "dpd": 0.8088,
+    "dir": 0.0,
+    "female_rate": 0.0,
+    "male_rate": 80.9,
+    "priya_verdict": "REJECTED",
+    "raj_verdict": "SHORTLISTED",
+    "priya_prob": 9.3,
+    "raj_prob": 74.1,
+    "dpd_verdict": "BIASED",
+    "dir_verdict": "BIASED"
+  },
+  "shap_global": [
+    {
+      "feature": "Gender",
+      "raw": "gender_num",
+      "importance": 1.5868
+    },
+    {
+      "feature": "10th Grade Score",
+      "raw": "ssc_p",
+      "importance": 0.5266
+    },
+    {
+      "feature": "12th Grade Score",
+      "raw": "hsc_p",
+      "importance": 0.3674
+    },
+    {
+      "feature": "Degree Percentage",
+      "raw": "degree_p",
+      "importance": 0.3021
+    },
+    {
+      "feature": "MBA Score",
+      "raw": "mba_p",
+      "importance": 0.1119
+    },
+    {
+      "feature": "Work Experience",
+      "raw": "workex_num",
+      "importance": 0.069
+    },
+    {
+      "feature": "Employability Test",
+      "raw": "etest_p",
+      "importance": 0.0313
+    },
+    {
+      "feature": "Degree Field",
+      "raw": "degree_t_num",
+      "importance": 0.0
+    },
+    {
+      "feature": "Specialisation",
+      "raw": "specialisation_num",
+      "importance": 0.0
+    }
+  ],
+  "shap_local": {
+    "prediction": 0,
+    "verdict": "REJECTED",
+    "probability": 9.3,
+    "values": [
+      {
+        "feature": "Gender",
+        "raw": "gender_num",
+        "shap": -2.343400001525879
+      },
+      {
+        "feature": "Degree Percentage",
+        "raw": "degree_p",
+        "shap": -0.17550000548362732
+      },
+      {
+        "feature": "Work Experience",
+        "raw": "workex_num",
+        "shap": 0.16769999265670776
+      },
+      {
+        "feature": "12th Grade Score",
+        "raw": "hsc_p",
+        "shap": 0.10809999704360962
+      },
+      {
+        "feature": "MBA Score",
+        "raw": "mba_p",
+        "shap": -0.08529999852180481
+      },
+      {
+        "feature": "10th Grade Score",
+        "raw": "ssc_p",
+        "shap": 0.0803999975323677
+      },
+      {
+        "feature": "Employability Test",
+        "raw": "etest_p",
+        "shap": -0.03620000183582306
+      },
+      {
+        "feature": "Degree Field",
+        "raw": "degree_t_num",
+        "shap": 0.0
+      },
+      {
+        "feature": "Specialisation",
+        "raw": "specialisation_num",
+        "shap": 0.0
+      }
+    ]
+  },
+  "counterfactuals": [
+    {
+      "id": 1,
+      "change": "If gender were recorded as Male",
+      "impact": "Outcome flips to SHORTLISTED",
+      "risk_change": "Outcome flips",
+      "difficulty": "Systemic",
+      "category": "Protected attribute",
+      "color": "red",
+      "explanation": "Changing only gender flips the AI decision. This directly proves gender bias."
+    },
+    {
+      "id": 2,
+      "change": "If employability test score increases from 68 to 84",
+      "impact": "Placement probability increases by 18%",
+      "risk_change": "+18%",
+      "difficulty": "Hard",
+      "category": "Test performance",
+      "color": "amber",
+      "explanation": "Scores help, but they do not fully overcome the gender penalty."
+    },
+    {
+      "id": 3,
+      "change": "If degree percentage increases from 72 to 88",
+      "impact": "Placement probability increases by 12%",
+      "risk_change": "+12%",
+      "difficulty": "Hard",
+      "category": "Academic performance",
+      "color": "amber",
+      "explanation": "Academic improvement helps, but gender remains the dominant factor."
+    }
+  ]
+}
