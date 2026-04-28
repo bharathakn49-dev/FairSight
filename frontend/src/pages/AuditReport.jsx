@@ -5,7 +5,7 @@ export default function AuditReport() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/gemini-report")
+    fetch("https://fairsight-backend-pihm.onrender.com/api/gemini-report")
       .then((res) => res.json())
       .then((data) => {
         setReport(data.report || "No report returned.");
